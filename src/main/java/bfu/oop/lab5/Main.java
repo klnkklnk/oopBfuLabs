@@ -36,7 +36,14 @@ public class Main {
         User user1 = new User(1, "user1", "password1", "User 1");
         User user2 = new User(2, "user2", "password2", "User 2");
         
-        System.out.println("Is authorized: " + userManager.isAuthorized()); // Output: true
+        try
+        {
+            System.out.println("Is authorized: " + userManager.isAuthorized() + " -- " + currentUserRepository.getUser().getLogin());
+        }
+        catch (NullPointerException e)
+        {
+            System.out.println("Not authorized");
+        }
         
         userManager.signIn(user1);
         System.out.println("Is authorized: " + userManager.isAuthorized()); // Output: true
