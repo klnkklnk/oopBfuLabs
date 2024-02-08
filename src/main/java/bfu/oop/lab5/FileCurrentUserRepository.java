@@ -1,14 +1,10 @@
 package bfu.oop.lab5;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.List;
 
-public class FileCurrentUserRepository implements IRepository<User>
+public class FileCurrentUserRepository implements ICurrentUserRepository
 {
-	private String filePath;
+	private final String filePath;
 	private User user;
 	
 	public FileCurrentUserRepository(String filePath) {
@@ -49,6 +45,7 @@ public class FileCurrentUserRepository implements IRepository<User>
 			file.delete();
 		}
 	}
+	@Override
 	public User getUser()
 	{
 		return user;
